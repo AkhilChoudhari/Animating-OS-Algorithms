@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="application.animator.deadlockavoidance.ProcessConfigurationFXMLController">
+   <children>
+      <FlowPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <TableView fx:id="resourcesTableView">
+              <columns>
+                <TableColumn fx:id="totalRequiredResourcesTableColumn" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="Total Required" />
+                <TableColumn fx:id="allocatedResourcesTableColumn" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="Allocated" />
+                  <TableColumn fx:id="moreRequiredResourcesTableColumn" maxWidth="1.7976931348623157E308" minWidth="200.0" prefWidth="-1.0" text="More Required" />
+              </columns>
+            </TableView>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addSystemProcess" text="Add Process" />
+                  <Button mnemonicParsing="false" text="Remove Process" />
+               </children>
+            </HBox>
+         </children>
+      </FlowPane>
+   </children>
+</AnchorPane>

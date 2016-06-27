@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.animator.schedulers.ProcessSchedulerController">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="220.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <VBox prefWidth="400.0" spacing="5.0">
+                           <children>
+                              <Label text="Scheduler's Ready Queue">
+                                 <VBox.margin>
+                                    <Insets left="20.0" top="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane>
+                                 <content>
+                                    <HBox fx:id="readyQueueHBox" spacing="5.0" />
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label text="Process Under Execution">
+                                 <VBox.margin>
+                                    <Insets left="20.0" top="5.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane>
+                                 <content>
+                                    <HBox fx:id="currentExecutionProcessHBox" />
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="250.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="Process Completion Status" textAlignment="CENTER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="250.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ScrollPane>
+                           <content>
+                              <HBox fx:id="processCompletionStatusHBox" spacing="20.0" />
+                           </content>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </center>
+         <right>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Time Log" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="30.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TableView fx:id="processTimeLogTableView" fixedCellSize="30.0">
+                     <columns>
+                        <TableColumn fx:id="nameColumn" editable="false" minWidth="75.0" prefWidth="75.0" sortable="false" text="Name" />
+                        <TableColumn fx:id="arrivalTimeColumn" editable="false" minWidth="60.0" prefWidth="60.0" sortable="false" text="Arrival" />
+                        <TableColumn fx:id="burstTimeColumn" editable="false" minWidth="60.0" prefWidth="60.0" sortable="false" text="Burst" />
+                        <TableColumn fx:id="initiationTimeColumn" prefWidth="75.0" text="Initiation" />
+                        <TableColumn fx:id="waitingTimeColumn" editable="false" minWidth="60.0" prefWidth="70.0" sortable="false" text="Waiting" />
+                        <TableColumn fx:id="completionTimeColumn" prefWidth="95.0" text="Completion" />
+                        <TableColumn fx:id="turnAroundTimeColumn" editable="false" minWidth="100.0" prefWidth="100.0" sortable="false" text="Turn Around" />
+                     </columns>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <Label text="Average Waiting Time:" />
+                        <Label fx:id="averageWaitingTimeLabel" />
+                        <Label text="Average Turn Around Time:" />
+                        <Label fx:id="averageTurnAroundTimeLabel" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <VBox prefHeight="250.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Process Execution Gannt Chart">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="30.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ScrollPane>
+                     <content>
+                        <HBox fx:id="ganntChartHBox" spacing="5.0" />
+                     </content>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ScrollPane>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label text="Status: " />
+                        <Label fx:id="statusLabel" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </bottom>
+         <top>
+            <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="schedulerPolicyTitleHBox" spacing="20.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="schedulerPolicyTitleLabel" alignment="CENTER" contentDisplay="CENTER">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="300.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="timeSliceTitleLabel">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#createRecreateProcesses" text="Assign Processes" />
+                        <ComboBox fx:id="schedulerPolicyComboBox" promptText="Select Scheduler Policy" />
+                        <TextField fx:id="timeSliceTextField" disable="true" promptText="Time Slice" visible="false" />
+                        <Button mnemonicParsing="false" onAction="#initiateSimulation" text="Initiate Simulation" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

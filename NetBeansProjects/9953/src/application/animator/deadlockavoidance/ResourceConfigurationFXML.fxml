@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.animator.deadlockavoidance.ResourceConfigurationFXMLController">
+   <children>
+      <DialogPane prefHeight="422.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox>
+               <children>
+                  <TableView fx:id="systemResourceInfoTableView">
+                     <columns>
+                        <TableColumn fx:id="idTableColumn" prefWidth="125.0" text="System Resource Id" />
+                        <TableColumn fx:id="totalInstancesTableColumn" prefWidth="100.0" text="Total Instances" />
+                     </columns>
+                  </TableView>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#addSystemResource" text="Add System Resource" />
+                              <TextField fx:id="totalInstancesTextField" promptText="Total Instances" />
+                              <Button mnemonicParsing="false" onAction="#removeSystemResource" text="Remove System Resource" />
+                           </children>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Button fx:id="doneButton" mnemonicParsing="false" onAction="#commitAndClose" text="Done" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+         <header>
+            <HBox>
+               <children>
+                  <Label text="System Resource Configuration">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="200.0" />
+               </padding>
+            </HBox>
+         </header>
+      </DialogPane>
+   </children>
+</AnchorPane>
